@@ -1,7 +1,12 @@
-# 🚀 Nasa Api Project 🌎️
 
-Simple project from Lynda's _Learning Vue.js_ course.
+<div style="text-align: center;">
+    <h1> 🚀 Nasa Api Project 🌎️ </h1>
+    <img src="nasa-api.png">
+</div>
 
+<hr>
+Simple project from Lynda's <a href="https://www.lynda.com/JavaScript-tutorials/Learning-Vuejs/737798-2.html"><i>Learning Vue.js</i></a> course.
+<br><br>
 I went ahead and created the project using `vue create` and developing a Vue Component for the main app.
 
 <hr>

@@ -13,7 +13,7 @@
                 <p> Closest object is {{ closestObject.name }} with {{ closestObject.miles }} miles.</p>
             </div>
 
-            <table class="table table-striped table-dark">
+            <table class="table table-sm table-striped table-dark">
                 <thead class="thead-light">
                     <tr>
                         <th>#</th>

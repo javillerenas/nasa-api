@@ -20,7 +20,8 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr v-for="(a, idx) in asteroids" :key="a.neo_reference_id">
+                    <tr v-for="(a, idx) in asteroids" :key="a.neo_reference_id" 
+                        :style="getRowStyle(a)">
                         <td>{{ idx+1 }}</td>
                         <td>{{ a.name }}</td>
                         <td>{{ getAsteroidDate(a) }}</td>
@@ -59,6 +60,8 @@ export default {
             else return this.asteroids.length;
         },
         closestObject: function () {
+            if (this.asteroids === null) return {};
+
             var filtered = this.asteroids.filter(a => a.close_approach_data.length > 0);
             filtered = filtered.map(a => { return {
                                             'name': a.name,
@@ -87,6 +90,11 @@ export default {
         },
         removeAsteroid: function (idx) {
             this.asteroids.splice(idx, 1);
+        },
+        getRowStyle: function (a) {
+            if (a.is_potentially_hazardous_asteroid)
+                return "border: red; background-color: red;";
+            else return '';
         }
     }
     

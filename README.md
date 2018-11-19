@@ -1,7 +1,7 @@
 
 <div style="text-align: center;">
-    <h1> 🚀 Nasa Api Project 🌎️ </h1>
-    <img src="nasa-api.png">
+    <h1 style="text-align: center;"> 🚀 Nasa Api Project 🌎️ </h1>
+    <img src="nasa-api.png" style="width: 75vw">
 </div>
 
 <hr>

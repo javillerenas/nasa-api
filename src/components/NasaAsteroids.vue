@@ -93,8 +93,10 @@ export default {
         },
         getRowStyle: function (a) {
             if (a.is_potentially_hazardous_asteroid)
-                return "border: red; background-color: red;";
-            else return '';
+                return {
+                    border: 'red 3px solid',
+                    background: 'rgb(255, 76, 66)'
+                }
         }
     }
     

@@ -1,20 +1,17 @@
 <template>
   <div id="app">
-    <Greeter name="javi"></Greeter>
     <NasaAsteroids></NasaAsteroids>
     <NasaApod></NasaApod>
   </div>
 </template>
 
 <script>
-import Greeter from './components/Greeter.vue'
 import NasaApod from './components/NasaApod.vue'
 import NasaAsteroids from './components/NasaAsteroids.vue'
 
 export default {
   name: 'app',
   components: {
-    Greeter,
     NasaApod,
     NasaAsteroids
   }

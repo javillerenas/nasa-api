@@ -2,7 +2,12 @@
     <div class="container">
 
         <div class="card mt-5">
-            <h2 class="card-header bg-dark text-white">asteroids</h2>
+            <h2 class="card-header bg-dark text-white">
+                🌎 Near Earth Objects 
+                <transition name="spin" appear>
+                    <span style="display: inline-block;">🛰</span>
+                </transition>
+            </h2>
             <div v-show="numAsteroids > 0">
                 <p class="mt-2">Showing {{ numAsteroids }} items.</p>
                 <p> Closest object is {{ closestObject.name }} with {{ closestObject.miles }} miles.</p>
@@ -125,6 +130,21 @@ export default {
 }
 .neo-list-enter-active, .neo-list-leave-active {
     transition: all 0.3s linear;
+}
+
+.spin-enter-active {
+    animation: spin-steps 2s;
+}
+@keyframes spin-steps {
+    0% {
+        transform: scale(1) rotate(0);
+    }
+    50% {
+        transform: scale(10) rotate(360);
+    }
+    100% {
+        transform: scale(1) rotate(720);
+    }
 }
 
 </style>

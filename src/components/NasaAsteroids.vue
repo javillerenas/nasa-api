@@ -19,7 +19,7 @@
                         <th>Remove</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody is="transition-group" name="neo-list" v-cloak>
                     <tr v-for="(a, idx) in asteroids" :key="a.neo_reference_id" 
                         :class="{dangerous: isDangerous(a)}">
                         <td>{{ idx+1 }}</td>
@@ -105,6 +105,10 @@ export default {
 
 <style scoped>
 
+[v-cloak] {
+    display: none;
+}
+
 .missingData {
     border: rgb(219, 168, 31) 3px groove;
     background: rgba(219, 168, 31, 0.5) !important;
@@ -113,6 +117,14 @@ export default {
 .dangerous {
     border: red 3px solid;
     background: rgb(255, 76, 66) !important;
+}
+
+.neo-list-leave-to, .neo-list-enter {
+    opacity: 0;
+    transform: translateY(30px);
+}
+.neo-list-enter-active, .neo-list-leave-active {
+    transition: all 0.3s linear;
 }
 
 </style>

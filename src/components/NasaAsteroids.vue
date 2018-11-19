@@ -3,8 +3,13 @@
 
         <div class="card mt-5">
             <h2 class="card-header bg-dark text-white">asteroids</h2>
-            <table class="table table-dark">
-                <thead>
+            <div v-show="numAsteroids > 0">
+                <p class="toRight mt-2">Showing {{ numAsteroids }} items.</p>
+                <p> Closest object is {{ closestObject.name }} with {{ closestObject.miles }} miles.</p>
+            </div>
+
+            <table class="table table-striped table-hover table-dark">
+                <thead class="thead-light">
                     <tr>
                         <th>#</th>
                         <th>name</th>
@@ -48,6 +53,23 @@ export default {
     created: function () {
         this.getAsteroids();
     },
+    computed: {
+        numAsteroids: function () {
+            if (this.asteroids == null) return 0;
+            else return this.asteroids.length;
+        },
+        closestObject: function () {
+            var filtered = this.asteroids.filter(a => a.close_approach_data.length > 0);
+            filtered = filtered.map(a => { return {
+                                            'name': a.name,
+                                            'miles': a.close_approach_data[0].miss_distance.miles,
+            }});
+            filtered = filtered.sort( (a,b) => {
+                return a.miles - b.miles;
+            });
+            return filtered[0];
+        }
+    },
     methods: {
         getAsteroids: function () {
             const apiKey = "t96xofCQtYjqxfxNMIuKakw2bfc6KSEZjWMJUC4l";
@@ -71,3 +93,11 @@ export default {
 }
 </script>
 
+
+<style scoped>
+
+.toRight {
+    justify-self: end;
+}
+
+</style>

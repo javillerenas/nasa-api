@@ -1,5 +1,14 @@
-# nasa-api
+# 🚀 Nasa Api Project 🌎️
 
+Simple project from Lynda's _Learning Vue.js_ course.
+
+I went ahead and created the project using `vue create` and developing a Vue Component for the main app.
+
+<hr>
+## About❓️️
+This app fetches asteroid data from NASA's open APIs and displays a table of them.
+
+<hr>
 ## Project setup
 ```
 npm install
@@ -14,16 +23,3 @@ npm run serve
 ```
 npm run build
 ```
-
-### Run your tests
-```
-npm run test
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).

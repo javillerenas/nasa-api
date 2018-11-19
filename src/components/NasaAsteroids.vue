@@ -4,11 +4,11 @@
         <div class="card mt-5">
             <h2 class="card-header bg-dark text-white">asteroids</h2>
             <div v-show="numAsteroids > 0">
-                <p class="toRight mt-2">Showing {{ numAsteroids }} items.</p>
+                <p class="mt-2">Showing {{ numAsteroids }} items.</p>
                 <p> Closest object is {{ closestObject.name }} with {{ closestObject.miles }} miles.</p>
             </div>
 
-            <table class="table table-striped table-hover table-dark">
+            <table class="table table-striped table-dark">
                 <thead class="thead-light">
                     <tr>
                         <th>#</th>
@@ -21,11 +21,11 @@
                 </thead>
                 <tbody>
                     <tr v-for="(a, idx) in asteroids" :key="a.neo_reference_id" 
-                        :style="getRowStyle(a)">
+                        :class="{dangerous: isDangerous(a)}">
                         <td>{{ idx+1 }}</td>
                         <td>{{ a.name }}</td>
                         <td>{{ getAsteroidDate(a) }}</td>
-                        <td>
+                        <td :class="{missingData: isMissingData(a)}">
                             <ul v-if="a.close_approach_data.length > 0">
                                 <li v-for="(value, key) in a.close_approach_data[0].miss_distance" :key="key">
                                     {{key}}: {{value}}
@@ -91,12 +91,11 @@ export default {
         removeAsteroid: function (idx) {
             this.asteroids.splice(idx, 1);
         },
-        getRowStyle: function (a) {
-            if (a.is_potentially_hazardous_asteroid)
-                return {
-                    border: 'red 3px solid',
-                    background: 'rgb(255, 76, 66)'
-                }
+        isDangerous: function (a) {
+            return a.is_potentially_hazardous_asteroid;
+        },
+        isMissingData: function (a) {
+            return ! a.close_approach_data.length > 0;
         }
     }
     
@@ -106,8 +105,14 @@ export default {
 
 <style scoped>
 
-.toRight {
-    justify-self: end;
+.missingData {
+    border: rgb(219, 168, 31) 3px groove;
+    background: rgba(219, 168, 31, 0.5) !important;
+}
+
+.dangerous {
+    border: red 3px solid;
+    background: rgb(255, 76, 66) !important;
 }
 
 </style>

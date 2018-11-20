@@ -1,7 +1,6 @@
-
-<div align="center">
+<div align="center" text-align="center">
     <h1> 🚀 Nasa Api Project 🌎️ </h1>
-    <img src="nasa-api.png" style="width: 80%">
+    <img src="nasa-api.png" width=600>
 </div>
 
 <hr>
@@ -10,10 +9,12 @@ Simple project from Lynda's <a href="https://www.lynda.com/JavaScript-tutorials/
 I went ahead and created the project using `vue create` and developing a Vue Component for the main app.
 
 <hr>
+
 ## About❓️️
 This app fetches asteroid data from NASA's open APIs and displays a table of them.
 
 <hr>
+
 ## Project setup
 ```
 npm install
